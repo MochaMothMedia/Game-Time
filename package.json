@@ -1,0 +1,12 @@
+{
+	"name": "com.fedoradev.gametime",
+	"displayName": "Game Time",
+	"version": "1.0.0",
+	"unity": "2020.3",
+	"unityRelease": "2f1",
+	"description": "Dynamic time tracking for Unity",
+	"author": {
+		"name": "Fedora Dev",
+		"email": "fedora.game.dev@gmail.com"
+	}
+}

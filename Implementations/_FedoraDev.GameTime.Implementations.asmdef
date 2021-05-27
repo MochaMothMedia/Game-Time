@@ -1,0 +1,16 @@
+{
+    "name": "_FedoraDev.GameTime.Implementations",
+    "rootNamespace": "FedoraDev.GameTime.Implementations",
+    "references": [
+        "GUID:47b5d1872f1280b4ab229b65da2f21b3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
