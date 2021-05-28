@@ -8,7 +8,7 @@ namespace FedoraDev.GameTime.Implementations
 	{
 		#region Editor Visuals
 #if UNITY_EDITOR
-		[SerializeField, FoldoutGroup("$Name", expanded: true)] string _name;
+		[SerializeField, FoldoutGroup("$Name")] string _name;
 		string Name => _name;
 #endif
 		#endregion

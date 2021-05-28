@@ -8,7 +8,7 @@ namespace FedoraDev.GameTime.Implementations
 	{
 		#region Editor Visuals
 #if UNITY_EDITOR
-		[SerializeField, FoldoutGroup("$Name", expanded: true)] string _name = "Days/Months/Years";
+		[SerializeField, FoldoutGroup("$Name")] string _name = "Days/Months/Years";
 		[ShowInInspector, ReadOnly, FoldoutGroup("$Name")] bool LeapYear => IsLeapYear();
 		string Name => _name;
 #endif
