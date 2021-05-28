@@ -1,5 +1,6 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace FedoraDev.GameTime.Implementations
 {
@@ -7,15 +8,19 @@ namespace FedoraDev.GameTime.Implementations
 	{
 		#region Editor Visuals
 #if UNITY_EDITOR
-		[SerializeField] string _name = "Days/Months/Years";
-		[ShowInInspector, ReadOnly] bool LeapYear => IsLeapYear();
+		[SerializeField, FoldoutGroup("$Name", expanded: true)] string _name = "Days/Months/Years";
+		[ShowInInspector, ReadOnly, FoldoutGroup("$Name")] bool LeapYear => IsLeapYear();
+		string Name => _name;
 #endif
 		#endregion
 
-		[SerializeField] int _conversionRate = 1;
-		[SerializeField] float _currentDay = 1f;
-		[SerializeField] float _currentMonth = 1f;
-		[SerializeField] float _currentYear = 2000f;
+		[SerializeField, FoldoutGroup("$Name")] int _conversionRate = 1;
+		[SerializeField, FoldoutGroup("$Name")] float _currentDay = 1f;
+		[SerializeField, FoldoutGroup("$Name")] float _currentMonth = 1f;
+		[SerializeField, FoldoutGroup("$Name")] float _currentYear = 2000f;
+		[SerializeField, HideLabel, BoxGroup("$Name/Day Event")] UnityEvent<float> _dayChanged = new UnityEvent<float>();
+		[SerializeField, HideLabel, BoxGroup("$Name/Month Event")] UnityEvent<float> _monthChanged = new UnityEvent<float>();
+		[SerializeField, HideLabel, BoxGroup("$Name/Year Event")] UnityEvent<float> _yearChanged = new UnityEvent<float>();
 
 		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
 
@@ -25,20 +30,25 @@ namespace FedoraDev.GameTime.Implementations
 
 			int lapses = Mathf.FloorToInt(_currentYear / ConversionRate);
 			_currentYear -= ConversionRate * lapses;
+
 			return lapses;
 		}
 
 		void TickDays(float tickTime)
 		{
 			_currentDay += tickTime;
-
+			bool dayChanged = false;
 
 			while (_currentDay > DaysInMonth())
 			{
+				dayChanged = true;
 				_currentDay -= DaysInMonth();
 
 				TickMonths(1);
 			}
+
+			if (dayChanged)
+				_dayChanged?.Invoke(_currentDay);
 		}
 
 		void TickMonths(float tickTime)
@@ -48,11 +58,16 @@ namespace FedoraDev.GameTime.Implementations
 			int lapses = Mathf.FloorToInt((_currentMonth - 1) / 12);
 			_currentMonth -= 12 * lapses;
 			TickYears(lapses);
+
+			if (lapses > 0)
+				_monthChanged?.Invoke(_currentMonth);
 		}
 
 		void TickYears(float tickTime)
 		{
 			_currentYear += tickTime;
+
+			_yearChanged?.Invoke(_currentYear);
 		}
 
 		int DaysInMonth()

@@ -1,18 +1,22 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace FedoraDev.GameTime.Implementations
 {
 	public class DefaultTimeUnit : ITimeUnit
 	{
 		#region Editor Visuals
-	#if UNITY_EDITOR
-			[SerializeField] string _name;
+#if UNITY_EDITOR
+		[SerializeField, FoldoutGroup("$Name", expanded: true)] string _name;
+		string Name => _name;
 #endif
 		#endregion
 
-		[SerializeField] bool _oneIndexed = false;
-		[SerializeField] int _conversionRate = 1;
-		[SerializeField] float _current = 0f;
+		[SerializeField, FoldoutGroup("$Name")] bool _oneIndexed = false;
+		[SerializeField, FoldoutGroup("$Name")] int _conversionRate = 1;
+		[SerializeField, FoldoutGroup("$Name")] float _current = 0f;
+		[SerializeField, HideLabel, BoxGroup("$Name/Change Event")] UnityEvent<float> _timeChanged = new UnityEvent<float>();
 
 		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
 
@@ -25,6 +29,10 @@ namespace FedoraDev.GameTime.Implementations
 				Mathf.FloorToInt(_current / ConversionRate);
 
 			_current -= ConversionRate * lapses;
+
+			if (lapses > 0)
+				_timeChanged?.Invoke(_current);
+
 			return lapses;
 		}
 	}

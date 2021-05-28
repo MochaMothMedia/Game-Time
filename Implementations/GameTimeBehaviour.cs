@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace FedoraDev.GameTime.Implementations
 {
+	[HideMonoScript]
     public class GameTimeBehaviour : SerializedMonoBehaviour, IGameTime
     {
         [SerializeField] IGameTime _gameTime;
