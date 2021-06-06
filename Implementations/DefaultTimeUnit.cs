@@ -19,6 +19,7 @@ namespace FedoraDev.GameTime.Implementations
 		[SerializeField, HideLabel, BoxGroup("$Name/Change Event")] UnityEvent<float> _timeChanged = new UnityEvent<float>();
 
 		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
+		public ulong Value => (ulong)(_current / _conversionRate * 100);
 
 		public int Tick(float tickTime)
 		{

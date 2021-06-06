@@ -23,6 +23,16 @@ namespace FedoraDev.GameTime.Implementations
 		[SerializeField, HideLabel, BoxGroup("$Name/Year Event")] UnityEvent<float> _yearChanged = new UnityEvent<float>();
 
 		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
+		public ulong Value => GetValue();
+
+		ulong GetValue()
+		{
+			ulong dayValue = (ulong)(_currentDay / DaysInMonth() * 100); // dd
+			ulong monthValue = (ulong)(_currentMonth / 12 * 10000); //mmdd
+			ulong yearValue = (ulong)(_currentYear * 100000); //yyyymmdd
+
+			return dayValue + monthValue + yearValue;
+		}
 
 		public int Tick(float tickTime)
 		{

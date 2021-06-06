@@ -212,6 +212,9 @@ MonoBehaviour:
     - Name: _currentYear
       Entry: 4
       Data: 2021
+    - Name: _startingYear
+      Entry: 4
+      Data: 2021
     - Name: _dayChanged
       Entry: 7
       Data: 15|UnityEngine.Events.UnityEvent`1[[System.Single, mscorlib]], UnityEngine.CoreModule
