@@ -24,6 +24,7 @@ namespace FedoraDev.GameTime.Implementations
 
 		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
 		public ulong Value => GetValue();
+		public string Readable => $"{_currentDay}:{_currentMonth}:{_currentYear}";
 
 		ulong GetValue()
 		{

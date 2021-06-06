@@ -20,6 +20,7 @@ namespace FedoraDev.GameTime.Implementations
 
 		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
 		public ulong Value => (ulong)(_current / _conversionRate * 100);
+		public string Readable => $"{_current}";
 
 		public int Tick(float tickTime)
 		{

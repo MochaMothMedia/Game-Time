@@ -4,5 +4,6 @@ namespace FedoraDev.GameTime
     {
         void Tick(float tickTime);
         ulong Value { get; }
+        string ReadableTime { get; }
     }
 }

@@ -7,6 +7,7 @@ namespace FedoraDev.GameTime.Implementations
     public class GameTimeBehaviour : SerializedMonoBehaviour, IGameTime
     {
 		public ulong Value => _gameTime.Value;
+		public string ReadableTime => _gameTime.ReadableTime;
 
 		[SerializeField] float _timeScale = 1f;
         [SerializeField] IGameTime _gameTime;
