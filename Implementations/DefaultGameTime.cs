@@ -1,6 +1,7 @@
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace FedoraDev.GameTime.Implementations
 {
@@ -10,6 +11,7 @@ namespace FedoraDev.GameTime.Implementations
 		public string ReadableTime => GetReadableTime();
 
 		[SerializeField, HideLabel, BoxGroup("Time Units")] List<ITimeUnit> _timeUnit;
+		[SerializeField, HideLabel, BoxGroup("Change Event")] UnityEvent<string> _changeEvent = new UnityEvent<string>();
 
 		public void Tick(float tickTime)
 		{
@@ -20,6 +22,8 @@ namespace FedoraDev.GameTime.Implementations
 				if (tickTime <= 0)
 					break;
 			}
+
+			_changeEvent?.Invoke(GetReadableTime());
 		}
 
 		ulong GetValue()

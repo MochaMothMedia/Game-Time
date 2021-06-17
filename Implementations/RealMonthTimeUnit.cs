@@ -1,6 +1,5 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace FedoraDev.GameTime.Implementations
 {
@@ -18,9 +17,6 @@ namespace FedoraDev.GameTime.Implementations
 		[SerializeField, FoldoutGroup("$Name")] float _currentDay = 1f;
 		[SerializeField, FoldoutGroup("$Name")] float _currentMonth = 1f;
 		[SerializeField, FoldoutGroup("$Name")] float _currentYear = 2000f;
-		[SerializeField, HideLabel, BoxGroup("$Name/Day Event")] UnityEvent<float> _dayChanged = new UnityEvent<float>();
-		[SerializeField, HideLabel, BoxGroup("$Name/Month Event")] UnityEvent<float> _monthChanged = new UnityEvent<float>();
-		[SerializeField, HideLabel, BoxGroup("$Name/Year Event")] UnityEvent<float> _yearChanged = new UnityEvent<float>();
 
 		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
 		public ulong Value => GetValue();
@@ -55,8 +51,6 @@ namespace FedoraDev.GameTime.Implementations
 
 				TickMonths(1);
 			}
-
-			_dayChanged?.Invoke(_currentDay);
 		}
 
 		void TickMonths(float tickTime)
@@ -66,15 +60,11 @@ namespace FedoraDev.GameTime.Implementations
 			int lapses = Mathf.FloorToInt((_currentMonth - 1) / 12);
 			_currentMonth -= 12 * lapses;
 			TickYears(lapses);
-
-			_monthChanged?.Invoke(_currentMonth);
 		}
 
 		void TickYears(float tickTime)
 		{
 			_currentYear += tickTime;
-
-			_yearChanged?.Invoke(_currentYear);
 		}
 
 		int DaysInMonth()

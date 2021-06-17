@@ -1,6 +1,5 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace FedoraDev.GameTime.Implementations
 {
@@ -16,7 +15,6 @@ namespace FedoraDev.GameTime.Implementations
 		[SerializeField, FoldoutGroup("$Name")] bool _oneIndexed = false;
 		[SerializeField, FoldoutGroup("$Name")] int _conversionRate = 1;
 		[SerializeField, FoldoutGroup("$Name")] float _current = 0f;
-		[SerializeField, HideLabel, BoxGroup("$Name/Change Event")] UnityEvent<float> _timeChanged = new UnityEvent<float>();
 
 		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
 		public ulong Value => (ulong)(_current / _conversionRate * 100);
@@ -31,8 +29,6 @@ namespace FedoraDev.GameTime.Implementations
 				Mathf.FloorToInt(_current / ConversionRate);
 
 			_current -= ConversionRate * lapses;
-
-			_timeChanged?.Invoke(_current);
 
 			return lapses;
 		}
