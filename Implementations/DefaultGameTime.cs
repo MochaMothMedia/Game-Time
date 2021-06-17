@@ -15,15 +15,19 @@ namespace FedoraDev.GameTime.Implementations
 
 		public void Tick(float tickTime)
 		{
+			bool lapsedAtLeastOnce = false;
+
 			for (int i = 0; i < _timeUnit.Count; i++)
 			{
 				tickTime = _timeUnit[i].Tick(tickTime);
 
 				if (tickTime <= 0)
 					break;
+				lapsedAtLeastOnce = true;
 			}
 
-			_changeEvent?.Invoke(GetReadableTime());
+			if (lapsedAtLeastOnce)
+				_changeEvent?.Invoke(GetReadableTime());
 		}
 
 		ulong GetValue()
