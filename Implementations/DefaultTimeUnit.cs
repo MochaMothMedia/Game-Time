@@ -32,8 +32,7 @@ namespace FedoraDev.GameTime.Implementations
 
 			_current -= ConversionRate * lapses;
 
-			if (lapses > 0)
-				_timeChanged?.Invoke(_current);
+			_timeChanged?.Invoke(_current);
 
 			return lapses;
 		}

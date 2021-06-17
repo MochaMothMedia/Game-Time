@@ -48,18 +48,15 @@ namespace FedoraDev.GameTime.Implementations
 		void TickDays(float tickTime)
 		{
 			_currentDay += tickTime;
-			bool dayChanged = false;
 
 			while (_currentDay > DaysInMonth())
 			{
-				dayChanged = true;
 				_currentDay -= DaysInMonth();
 
 				TickMonths(1);
 			}
 
-			if (dayChanged)
-				_dayChanged?.Invoke(_currentDay);
+			_dayChanged?.Invoke(_currentDay);
 		}
 
 		void TickMonths(float tickTime)
@@ -70,8 +67,7 @@ namespace FedoraDev.GameTime.Implementations
 			_currentMonth -= 12 * lapses;
 			TickYears(lapses);
 
-			if (lapses > 0)
-				_monthChanged?.Invoke(_currentMonth);
+			_monthChanged?.Invoke(_currentMonth);
 		}
 
 		void TickYears(float tickTime)
