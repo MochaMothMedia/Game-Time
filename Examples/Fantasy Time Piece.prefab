@@ -172,7 +172,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 8|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 8|FedoraDev.GameTime.Implementations.LargeTimeUnit, _FedoraDev.GameTime.Implementations
     - Name: _name
       Entry: 1
       Data: Year

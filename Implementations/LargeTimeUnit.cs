@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace FedoraDev.GameTime.Implementations
 {
-	public class DefaultTimeUnit : ITimeUnit
-	{
+    public class LargeTimeUnit : ITimeUnit
+    {
 		#region Editor Visuals
 #if UNITY_EDITOR
 		[SerializeField, FoldoutGroup("$Name")] string _name;
@@ -17,7 +17,7 @@ namespace FedoraDev.GameTime.Implementations
 
 		[SerializeField, FoldoutGroup("$Name")] bool _oneIndexed = false;
 		[SerializeField, FoldoutGroup("$Name")] int _conversionRate = 1;
-		[SerializeField, FoldoutGroup("$Name")] byte _current = 0;
+		[SerializeField, FoldoutGroup("$Name")] uint _current = 0;
 
 		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
 		float _currentFloat;

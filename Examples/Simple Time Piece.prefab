@@ -154,19 +154,19 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 7|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 7|FedoraDev.GameTime.Implementations.LargeTimeUnit, _FedoraDev.GameTime.Implementations
     - Name: _name
       Entry: 1
       Data: Year
     - Name: _oneIndexed
       Entry: 5
-      Data: false
+      Data: true
     - Name: _conversionRate
       Entry: 3
       Data: -1
     - Name: _current
       Entry: 3
-      Data: 0
+      Data: 2022
     - Name: 
       Entry: 8
       Data: 
