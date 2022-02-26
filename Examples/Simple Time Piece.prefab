@@ -55,9 +55,6 @@ MonoBehaviour:
     - Name: _gameTime
       Entry: 7
       Data: 0|FedoraDev.GameTime.Implementations.DefaultGameTime, _FedoraDev.GameTime.Implementations
-    - Name: _timeScale
-      Entry: 4
-      Data: 1
     - Name: _timeUnit
       Entry: 7
       Data: 1|System.Collections.Generic.List`1[[FedoraDev.GameTime.ITimeUnit, _FedoraDev.GameTime]],
@@ -78,39 +75,14 @@ MonoBehaviour:
       Entry: 3
       Data: 60
     - Name: _current
-      Entry: 4
-      Data: 0
-    - Name: _timeChanged
-      Entry: 7
-      Data: 3|UnityEngine.Events.UnityEvent`1[[System.Single, mscorlib]], UnityEngine.CoreModule
-    - Name: m_PersistentCalls
-      Entry: 7
-      Data: 4|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
-    - Name: m_Calls
-      Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 12
+      Entry: 3
       Data: 0
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 6|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 3|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
     - Name: _name
       Entry: 1
       Data: Minute
@@ -121,39 +93,14 @@ MonoBehaviour:
       Entry: 3
       Data: 60
     - Name: _current
-      Entry: 4
-      Data: 0
-    - Name: _timeChanged
-      Entry: 7
-      Data: 7|UnityEngine.Events.UnityEvent`1[[System.Single, mscorlib]], UnityEngine.CoreModule
-    - Name: m_PersistentCalls
-      Entry: 7
-      Data: 8|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
-    - Name: m_Calls
-      Entry: 7
-      Data: 9|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 12
+      Entry: 3
       Data: 0
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 10|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 4|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
     - Name: _name
       Entry: 1
       Data: Hour
@@ -164,39 +111,14 @@ MonoBehaviour:
       Entry: 3
       Data: 24
     - Name: _current
-      Entry: 4
-      Data: 0
-    - Name: _timeChanged
-      Entry: 7
-      Data: 11|UnityEngine.Events.UnityEvent`1[[System.Single, mscorlib]], UnityEngine.CoreModule
-    - Name: m_PersistentCalls
-      Entry: 7
-      Data: 12|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
-    - Name: m_Calls
-      Entry: 7
-      Data: 13|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 12
+      Entry: 3
       Data: 0
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 14|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 5|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
     - Name: _name
       Entry: 1
       Data: Day
@@ -207,120 +129,45 @@ MonoBehaviour:
       Entry: 3
       Data: 30
     - Name: _current
-      Entry: 4
+      Entry: 3
       Data: 1
-    - Name: _timeChanged
-      Entry: 7
-      Data: 15|UnityEngine.Events.UnityEvent`1[[System.Single, mscorlib]], UnityEngine.CoreModule
-    - Name: m_PersistentCalls
-      Entry: 7
-      Data: 16|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
-    - Name: m_Calls
-      Entry: 7
-      Data: 17|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 18|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 6|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
     - Name: _name
       Entry: 1
       Data: Month
     - Name: _oneIndexed
       Entry: 5
-      Data: true
+      Data: false
     - Name: _conversionRate
       Entry: 3
       Data: 12
     - Name: _current
-      Entry: 4
-      Data: 1
-    - Name: _timeChanged
-      Entry: 7
-      Data: 19|UnityEngine.Events.UnityEvent`1[[System.Single, mscorlib]], UnityEngine.CoreModule
-    - Name: m_PersistentCalls
-      Entry: 7
-      Data: 20|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
-    - Name: m_Calls
-      Entry: 7
-      Data: 21|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 12
+      Entry: 3
       Data: 0
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 22|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 7|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
     - Name: _name
       Entry: 1
       Data: Year
     - Name: _oneIndexed
       Entry: 5
-      Data: true
+      Data: false
     - Name: _conversionRate
       Entry: 3
       Data: -1
     - Name: _current
-      Entry: 4
-      Data: 1
-    - Name: _timeChanged
-      Entry: 7
-      Data: 23|UnityEngine.Events.UnityEvent`1[[System.Single, mscorlib]], UnityEngine.CoreModule
-    - Name: m_PersistentCalls
-      Entry: 7
-      Data: 24|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
-    - Name: m_Calls
-      Entry: 7
-      Data: 25|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 12
+      Entry: 3
       Data: 0
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
     - Name: 
@@ -329,6 +176,13 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: _changeReadableEvent
+      Entry: 6
+      Data: 
+    - Name: _changeValueEvent
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
+  _timeScale: 1

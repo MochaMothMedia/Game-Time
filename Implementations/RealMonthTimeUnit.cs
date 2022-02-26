@@ -13,22 +13,27 @@ namespace FedoraDev.GameTime.Implementations
 #endif
 		#endregion
 
-		[SerializeField, FoldoutGroup("$Name")] int _conversionRate = 1;
-		[SerializeField, FoldoutGroup("$Name")] float _currentDay = 1f;
-		[SerializeField, FoldoutGroup("$Name")] float _currentMonth = 1f;
-		[SerializeField, FoldoutGroup("$Name")] float _currentYear = 2000f;
-
-		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
 		public ulong Value => GetValue();
 		public string Readable => $"{_currentDay}:{_currentMonth}:{_currentYear}";
 
+		[SerializeField, FoldoutGroup("$Name")] int _conversionRate = 1;
+		[SerializeField, FoldoutGroup("$Name")] byte _currentDay = 1;
+		[SerializeField, FoldoutGroup("$Name")] byte _currentMonth = 1;
+		[SerializeField, FoldoutGroup("$Name")] uint _currentYear = 2000;
+
+		int ConversionRate => _conversionRate == -1 ? int.MaxValue : _conversionRate;
+		float _currentDayFloat;
+
 		ulong GetValue()
 		{
-			ulong dayValue = (ulong)(_currentDay / DaysInMonth() * 100); // dd
-			ulong monthValue = (ulong)(_currentMonth / 12 * 10000); //mmdd
-			ulong yearValue = (ulong)(_currentYear * 100000); //yyyymmdd
+			if (_currentYear > 16777215)
+				Debug.Log("Some data from the year may be lost if this time unit uses seconds, minutes, and hours. This time unit only uses 3 bytes for the year which has a maximum value of 16,777,215.");
 
-			return dayValue + monthValue + yearValue;
+			ulong value = _currentDay; // 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 dddd dddd
+			value += (ulong)_currentMonth << 8; // 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 mmmm mmmm dddd dddd
+			value += (ulong)_currentYear << 16; // 0000 0000 0000 0000 0000 0000 yyyy yyyy yyyy yyyy yyyy yyyy mmmm mmmm dddd dddd
+
+			return value;
 		}
 
 		public int Tick(float tickTime)
@@ -36,35 +41,44 @@ namespace FedoraDev.GameTime.Implementations
 			TickDays(tickTime);
 
 			int lapses = Mathf.FloorToInt(_currentYear / ConversionRate);
-			_currentYear -= ConversionRate * lapses;
+			_currentYear -= (uint)(ConversionRate * lapses);
 
 			return lapses;
 		}
 
 		void TickDays(float tickTime)
 		{
-			_currentDay += tickTime;
+			_currentDayFloat += tickTime;
+
+			if (_currentDayFloat >= 1f)
+			{
+				int currentDayInt = Mathf.FloorToInt(_currentDayFloat);
+				_currentDay += (byte)currentDayInt;
+				_currentDayFloat -= currentDayInt;
+			}
 
 			while (_currentDay > DaysInMonth())
 			{
-				_currentDay -= DaysInMonth();
+				_currentDay -= (byte)DaysInMonth();
 
-				TickMonths(1);
+				TickMonths();
 			}
 		}
 
-		void TickMonths(float tickTime)
+		void TickMonths()
 		{
-			_currentMonth += tickTime;
+			_currentMonth += 1;
 
-			int lapses = Mathf.FloorToInt((_currentMonth - 1) / 12);
-			_currentMonth -= 12 * lapses;
-			TickYears(lapses);
+			if (_currentMonth >= 12)
+			{
+				_currentMonth -= 12;
+				TickYears();
+			}
 		}
 
-		void TickYears(float tickTime)
+		void TickYears()
 		{
-			_currentYear += tickTime;
+			_currentYear += 1;
 		}
 
 		int DaysInMonth()

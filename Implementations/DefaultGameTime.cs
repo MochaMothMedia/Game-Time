@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,11 +8,20 @@ namespace FedoraDev.GameTime.Implementations
 {
 	public class DefaultGameTime : IGameTime
 	{
+#if UNITY_EDITOR
+		[ShowInInspector, ReadOnly, HideLabel, BoxGroup("Bit Representation")]
+		public string ByteTime => GetBinaryTime();
+#endif
+
+		[ShowInInspector, ReadOnly, HideLabel, BoxGroup("ULong Representation")]
 		public ulong Value => GetValue();
+
+		[ShowInInspector, ReadOnly, HideLabel, BoxGroup("Readable Representation")]
 		public string ReadableTime => GetReadableTime();
 
 		[SerializeField, HideLabel, BoxGroup("Time Units")] List<ITimeUnit> _timeUnit;
-		[SerializeField, HideLabel, BoxGroup("Change Event")] UnityEvent<string> _changeEvent = new UnityEvent<string>();
+		[SerializeField, HideLabel, BoxGroup("Change => Readable String")] UnityEvent<string> _changeReadableEvent = new UnityEvent<string>();
+		[SerializeField, HideLabel, BoxGroup("Change => Value")] UnityEvent<ulong> _changeValueEvent = new UnityEvent<ulong>();
 
 		public void Tick(float tickTime)
 		{
@@ -27,17 +37,20 @@ namespace FedoraDev.GameTime.Implementations
 			}
 
 			if (lapsedAtLeastOnce)
-				_changeEvent?.Invoke(GetReadableTime());
+			{
+				_changeReadableEvent?.Invoke(GetReadableTime());
+				_changeValueEvent?.Invoke(GetValue());
+			}
 		}
-
+		
 		ulong GetValue()
 		{
 			ulong value = 0;
-			ulong multiplier = 10;
 
 			for (int i = 0; i < _timeUnit.Count; i++)
 			{
-				value += _timeUnit[i].Value * multiplier * ((ulong)i + 1);
+				ulong unit = _timeUnit[i].Value << (8 * i);
+				value += unit;
 			}
 
 			return value;
@@ -52,5 +65,18 @@ namespace FedoraDev.GameTime.Implementations
 
 			return string.Join(":", times);
 		}
+
+#if UNITY_EDITOR
+		string GetBinaryTime()
+		{
+			string binary = Convert.ToString((long)Value, 2).PadLeft(64, '0');
+			List<string> segments = new List<string>();
+
+			for (int i = 0; i < 64; i += 4)
+				segments.Add(binary.Substring(i, 4));
+
+			return string.Join(" ", segments);
+		}
+#endif
 	}
 }
