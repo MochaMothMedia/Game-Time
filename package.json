@@ -2,11 +2,11 @@
 	"name": "com.mochamoth.gametime",
 	"displayName": "Game Time",
 	"version": "2.1.0",
-	"unity": "2020.3",
-	"unityRelease": "2f1",
+	"unity": "6000.3",
+	"unityRelease": "21f1",
 	"description": "Dynamic time tracking for Unity",
 	"author": {
 		"name": "Mocha Moth",
-		"email": "fedora.game.dev@gmail.com"
+		"email": "mochamoth@mochamoth.com"
 	}
 }
