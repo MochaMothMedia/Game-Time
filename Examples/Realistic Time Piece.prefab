@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &654821805536636365
+--- !u!1 &1110772756315890829
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 654821805536636355}
-  - component: {fileID: 654821805536636364}
+  - component: {fileID: 934207928506218754}
+  - component: {fileID: 1247264319232144738}
   m_Layer: 0
   m_Name: Realistic Time Piece
   m_TagString: Untagged
@@ -17,27 +17,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &654821805536636355
+--- !u!4 &934207928506218754
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654821805536636365}
+  m_GameObject: {fileID: 1110772756315890829}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -50.18612, y: -43.177746, z: 98.489265}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &654821805536636364
+--- !u!114 &1247264319232144738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654821805536636365}
+  m_GameObject: {fileID: 1110772756315890829}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58864d5b1cfc57346a9f7e6a674c8df7, type: 3}
@@ -54,20 +55,20 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _gameTime
       Entry: 7
-      Data: 0|FedoraDev.GameTime.Implementations.DefaultGameTime, _FedoraDev.GameTime.Implementations
+      Data: 0|MochaMoth.GameTime.Implementations.DefaultGameTime, _MochaMoth.GameTime.Implementations
     - Name: _timeUnit
       Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[FedoraDev.GameTime.ITimeUnit, _FedoraDev.GameTime]],
+      Data: 1|System.Collections.Generic.List`1[[MochaMoth.GameTime.ITimeUnit, _MochaMoth.GameTime]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 4
     - Name: 
       Entry: 7
-      Data: 2|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 2|MochaMoth.GameTime.Implementations.DefaultTimeUnit, _MochaMoth.GameTime.Implementations
     - Name: _name
       Entry: 1
-      Data: Second
+      Data: Seconds
     - Name: _oneIndexed
       Entry: 5
       Data: false
@@ -82,10 +83,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 3|MochaMoth.GameTime.Implementations.DefaultTimeUnit, _MochaMoth.GameTime.Implementations
     - Name: _name
       Entry: 1
-      Data: Minute
+      Data: Minutes
     - Name: _oneIndexed
       Entry: 5
       Data: false
@@ -100,10 +101,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|FedoraDev.GameTime.Implementations.DefaultTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 4|MochaMoth.GameTime.Implementations.DefaultTimeUnit, _MochaMoth.GameTime.Implementations
     - Name: _name
       Entry: 1
-      Data: Hour
+      Data: Hours
     - Name: _oneIndexed
       Entry: 5
       Data: false
@@ -118,7 +119,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|FedoraDev.GameTime.Implementations.RealMonthTimeUnit, _FedoraDev.GameTime.Implementations
+      Data: 5|MochaMoth.GameTime.Implementations.RealMonthTimeUnit, _MochaMoth.GameTime.Implementations
     - Name: _name
       Entry: 1
       Data: Days/Months/Years
@@ -133,7 +134,7 @@ MonoBehaviour:
       Data: 1
     - Name: _currentYear
       Entry: 3
-      Data: 2022
+      Data: 2000
     - Name: 
       Entry: 8
       Data: 
@@ -144,10 +145,54 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: _changeReadableEvent
-      Entry: 6
+      Entry: 7
+      Data: 6|UnityEngine.Events.UnityEvent`1[[System.String, mscorlib]], UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 7|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: _changeValueEvent
-      Entry: 6
+      Entry: 7
+      Data: 9|UnityEngine.Events.UnityEvent`1[[System.UInt64, mscorlib]], UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 10|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8

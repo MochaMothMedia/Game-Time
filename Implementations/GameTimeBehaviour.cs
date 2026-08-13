@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace FedoraDev.GameTime.Implementations
+namespace MochaMoth.GameTime.Implementations
 {
 	[HideMonoScript]
     public class GameTimeBehaviour : SerializedMonoBehaviour, IGameTime

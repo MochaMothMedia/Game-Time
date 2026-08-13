@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace FedoraDev.GameTime.Implementations
+namespace MochaMoth.GameTime.Implementations
 {
 	public class DefaultGameTime : IGameTime
 	{
@@ -19,7 +19,7 @@ namespace FedoraDev.GameTime.Implementations
 		[ShowInInspector, ReadOnly, HideLabel, BoxGroup("Readable Representation")]
 		public string ReadableTime => GetReadableTime();
 
-		[SerializeField, HideLabel, BoxGroup("Time Units")] List<ITimeUnit> _timeUnit;
+		[SerializeField, HideLabel, BoxGroup("Time Units")] List<ITimeUnit> _timeUnit = new List<ITimeUnit>();
 		[SerializeField, HideLabel, BoxGroup("Change => Readable String")] UnityEvent<string> _changeReadableEvent = new UnityEvent<string>();
 		[SerializeField, HideLabel, BoxGroup("Change => Value")] UnityEvent<ulong> _changeValueEvent = new UnityEvent<ulong>();
 

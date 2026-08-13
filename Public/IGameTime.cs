@@ -1,4 +1,4 @@
-namespace FedoraDev.GameTime
+namespace MochaMoth.GameTime
 {
 	public interface IGameTime
     {
