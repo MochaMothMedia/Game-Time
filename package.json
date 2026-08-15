@@ -1,7 +1,7 @@
 {
 	"name": "com.mochamoth.gametime",
 	"displayName": "Game Time",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"unity": "6000.3",
 	"unityRelease": "21f1",
 	"description": "Dynamic time tracking for Unity",
